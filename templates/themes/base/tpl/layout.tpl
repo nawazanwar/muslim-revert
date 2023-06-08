@@ -44,7 +44,7 @@
     {{ $design->externalCssFile(PH7_URL_STATIC. PH7_CSS . 'font-awesome.css') }}
     {{ $design->staticFiles('css', PH7_STATIC . PH7_CSS . 'js/jquery/box', 'box.css') }} {* We have to include box CSS alone because it includes images in its folder *}
     {{ $design->staticFiles('css', PH7_STATIC . PH7_CSS, 'bootstrap.css,bootstrap_customize.css,animate.css') }}
-    {{ $design->staticFiles('css', PH7_LAYOUT . PH7_TPL . PH7_TPL_NAME . PH7_SH . PH7_CSS, 'common.css,style.css,layout.css,like.css,color.css,form.css,js/jquery/rating.css,js/jquery/apprise.css,js/jquery/tipTip.css,custom.css,webuiPopover.css,owlCarousel.css,magnificPopup.css,datetimePicker.css,animate.css,bootstrapSelect.css,customStyle.css,customResponsive.css') }}
+    {{ $design->staticFiles('css', PH7_LAYOUT . PH7_TPL . PH7_TPL_NAME . PH7_SH . PH7_CSS, 'common.css,style.css,layout.css,like.css,color.css,form.css,js/jquery/rating.css,js/jquery/apprise.css,js/jquery/tipTip.css,webuiPopover.css,owlCarousel.css,magnificPopup.css,datetimePicker.css,animate.css,bootstrapSelect.css,customStyle.css,customResponsive.css') }}
     {if $top_navbar_type === 'inverse'}
       {{ $design->staticFiles('css', PH7_LAYOUT . PH7_TPL . PH7_TPL_NAME . PH7_SH . PH7_CSS, 'menu_inverse.css') }}
     {else}
@@ -81,83 +81,86 @@
     {designModel.analyticsApi()}
   </head>
   <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
-
-    <!-- Begin Header -->
-    <header>
-      {* If we aren't on the the splash page, then display the menu *}
-      {if !$is_guest_homepage}
-        {main_include 'top_menu.inc.tpl'}
-      {/if}
-
-      <noscript>
-        <div class="noscript err_msg">
-          {lang}JavaScript is disabled on your Web browser!<br /> Please enable JavaScript via the options of your Web browser in order to use this website.{/lang}
-        </div>
-      </noscript>
-
-      {if $is_guest_homepage}
-          <div class="row">
-              <div role="banner" id="logo" class="col-md-8">
-                  <h1 itemprop="name">
-                      <a href="{{ $design->homePageUrl() }}">{site_name}</a>
-                  </h1>
+    <div class="header-holder" style="
+    background-image: url('templates/themes/base/img/slider-2.jpg');
+    background-position: unset;
+    background-repeat: no-repeat;
+    background-size: cover;
+">
+      <header class="header_menu_area affix-top">
+        {if !$is_guest_homepage}
+          {main_include 'top_menu.inc.tpl'}
+        {/if}
+        {if $is_guest_homepage}
+          <nav class="navbar navbar-default bg-transparent">
+            <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ $design->homePageUrl() }}">{site_name}</a>
               </div>
-          </div>
-      {/if}
 
-      {* Heading groups (H1 to H4) *}
-      {main_include 'headings.inc.tpl'}
-
-      {* Don't display the top middle banner on the the splash page *}
-      {if !$is_guest_homepage}
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a class="bold" href="{{ $design->url('user', 'signup', 'step1') }}" title="{lang 'Join Now!'}">
+                      <i class="fa fa-user-plus"></i> {lang 'Join Now!'}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ $design->url('user', 'main', 'login') }}" title="{lang 'Login'}" data-load="ajax">
+                      <i class="fa fa-sign-in"></i> {lang 'Login'}
+                    </a>
+                  </li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        {/if}
+        {*{main_include 'headings.inc.tpl'}*}
+        {if !$is_guest_homepage}
           <div role="banner" class="center ad_468_60">
-              {designModel.ad(468, 60)}
+            {designModel.ad(468, 60)}
           </div>
-      {/if}
+        {/if}
+        <div class="clear"></div>
+      </header>
+      <main class="container-fluid" style="padding-left: 0;padding-right:0;">
+        {* Alert Message *}
+        {{ $design->flashMsg() }}
+        <div class="msg"></div>
 
-      <div class="clear"></div>
-    </header>
-    <!-- End Header -->
+        {* Loading JS Lang *}
+        {* The file must be before the content of the site to avoid that the "pH7LangCore"  object is undefined *}
+        {{ $lang_file =  Framework\Translate\Lang::getJsFile(PH7_PATH_STATIC . PH7_JS . PH7_LANG) }}
+        {{ $design->staticFiles('js', PH7_STATIC . PH7_JS, PH7_LANG . $lang_file) }}
 
-    <!-- Begin Popups -->
-    <div id="box">
-      <p></p>
-    </div>
-    <!-- End Popups -->
-
-    <!-- Begin Content -->
-    <main role="main" class="container" id="content">
-      {* Alert Message *}
-      {{ $design->flashMsg() }}
-      <div class="msg"></div>
-
-      {* Loading JS Lang *}
-      {* The file must be before the content of the site to avoid that the "pH7LangCore"  object is undefined *}
-      {{ $lang_file =  Framework\Translate\Lang::getJsFile(PH7_PATH_STATIC . PH7_JS . PH7_LANG) }}
-      {{ $design->staticFiles('js', PH7_STATIC . PH7_JS, PH7_LANG . $lang_file) }}
-
-      {if !empty($manual_include)}
-        {manual_include $manual_include}
-      {elseif !empty($pOH_not_found)}
-        {main_include 'error.inc.tpl'}
-      {else}
-        {auto_include}
-      {/if}
-    </main>
-    <div role="banner" class="center ad_468_60">
+        {if !empty($manual_include)}
+          {manual_include $manual_include}
+        {elseif !empty($pOH_not_found)}
+          {main_include 'error.inc.tpl'}
+        {else}
+          {auto_include}
+        {/if}
+      </main>
+      <div role="banner" class="center ad_468_60">
         {designModel.ad(468, 60)}
+      </div>
     </div>
-    <!-- End Content -->
-
-    <!-- Begin Footer -->
-    <footer>
+    <footer class="text-left">
         <div class="footer_widgets_area">
             {main_include 'bottom_menu.inc.tpl'}
         </div>
         <div class="copyright">
           <div class="copyright_left">
             <div class="copyright_text">
-              <h4>&copy; <ph:date value="Y" /> <strong>{site_name}</strong>  {{ $design->link() }}</h4>
+              <h4>&copy; <ph:date value="Y" /> <strong>{site_name}</strong><span style="visibility: hidden;">{{ $design->link() }}</span></h4>
             </div>
           </div>
           <div class="copyright_right">
@@ -184,14 +187,6 @@
         </p>
       {/if}
     </footer>
-
-    <div class="clear"></div>
-    <div class="right vs_marg">
-      {* Required for the GeoLite2 free version. Not needed if you purchase their full paid version *}
-      <small class="small">
-        {lang}We use GeoLite2 from <a href="http://www.maxmind.com" rel="nofollow" class="gray">MaxMind</a>{/lang}
-      </small>
-    </div>
     <!-- End Footer -->
 
     <!-- Begin Footer JavaScript -->

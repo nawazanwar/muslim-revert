@@ -1,4 +1,5 @@
-    {* Get the frequently used functions in variables to optimize the script and call these functions only once in the file *}
+
+{* Get the frequently used functions in variables to optimize the script and call these functions only once in the file *}
     {{
       $admin_logged_as_user = UserCore::isAdminLoggedAs();
       $admin_logged_as_affiliate = AffiliateCore::isAdminLoggedAs();
@@ -13,9 +14,9 @@
 
     {* Menu for all *}
       {if $top_navbar_type === 'inverse'}
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse ">
       {else}
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default ">
       {/if}
         <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->

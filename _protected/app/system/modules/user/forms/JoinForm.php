@@ -58,7 +58,7 @@ class JoinForm
         $oForm->addElement(new Textbox(t('Your First Name'), 'first_name', ['placeholder' => t('First Name'), 'id' => 'name_first', 'onblur' => 'CValid(this.value,this.id)', 'required' => 1, 'validation' => new Name]));
         $oForm->addElement(new HTMLExternal('<span class="input_error name_first"></span>'));
 
-        $oForm->addElement(new \PFBC\Element\Username(t('Your Nickname'), 'username', ['placeholder' => t('Nickname'), 'description' => PH7_URL_ROOT . UserCore::PROFILE_PAGE_PREFIX . '<strong><span class="your-username">' . t('your-nickname') . '</span><span class="username"></span></strong>', 'id' => 'username', 'required' => 1, 'validation' => new Username]));
+        $oForm->addElement(new \PFBC\Element\Username(t('Your Nickname'), 'username', ['placeholder' => t('Nickname'), 'id' => 'username', 'required' => 1, 'validation' => new Username]));
 
         $oForm->addElement(new Email(t('Your Email'), 'mail', ['placeholder' => t('Email'), 'id' => 'email', 'onblur' => 'CValid(this.value, this.id,\'guest\')', 'required' => 1, 'validation' => new CEmail(CEmail::GUEST_MODE)]));
         $oForm->addElement(new HTMLExternal('<span class="input_error email"></span>'));

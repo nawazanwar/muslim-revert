@@ -6,13 +6,11 @@
         </a>
     </div>
     {{ JoinForm::step1() }}
-
     <div class="counter center">
         <h2 class="red3">{lang 'People love us! Realtime users using our service'}</h2>
         {{ $userDesign->userCounter() }}
     </div>
 </div>
-
 <div class="left col-lg-7 col-md-8 col-sm-7 col-xs-12">
     <div class="folio_block animated fadeInDown">
         <h1 class="red3 italic underline">{slogan}</h1>
@@ -22,7 +20,7 @@
                 <div class="img_reel">
                     {for $i in [1,2,3,4,5]}
                         <a href="{url_root}">
-                            <img src="{url_tpl_img}slideshow/{i}.jpg" alt="{lang 'Social Dating Web App'}" />
+                            <img src="{url_tpl_img}slideshow/{i}.jpg" alt="{lang 'Social Dating Web App'}"/>
                         </a>
                     {/for}
                 </div>
