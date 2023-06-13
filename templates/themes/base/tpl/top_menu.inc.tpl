@@ -14,31 +14,23 @@
 
     {* Menu for all *}
       {if $top_navbar_type === 'inverse'}
-        <nav class="navbar navbar-inverse ">
+        <nav class="navbar navbar-inverse">
       {else}
-        <nav class="navbar navbar-default ">
+        <nav class="navbar navbar-default">
       {/if}
         <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <div role="banner" id="logo" class="navbar-brand">
-              <h1>
-                <a href="{{ $design->homePageUrl() }}" title="{slogan}">
-                  {site_name}
-                </a>
-              </h1>
-            </div>
+            <a class="navbar-brand" href="{{ $design->homePageUrl() }}">{site_name}</a>
           </div>
-
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-
     {* Guest menu *}
       {if !$is_user_auth AND !$is_aff_auth AND !$is_admin_auth}
         <li>

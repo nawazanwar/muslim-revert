@@ -81,57 +81,52 @@
     {designModel.analyticsApi()}
   </head>
   <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
-    <div class="header-holder" style="
-    background-image: url('templates/themes/base/img/slider-2.jpg');
-    background-position: unset;
-    background-repeat: no-repeat;
-    background-size: cover;
-">
-      <header class="header_menu_area affix-top">
-        {if !$is_guest_homepage}
-          {main_include 'top_menu.inc.tpl'}
-        {/if}
-        {if $is_guest_homepage}
-          <nav class="navbar navbar-default bg-transparent">
-            <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ $design->homePageUrl() }}">{site_name}</a>
-              </div>
 
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                  <li>
-                    <a class="bold" href="{{ $design->url('user', 'signup', 'step1') }}" title="{lang 'Join Now!'}">
-                      <i class="fa fa-user-plus"></i> {lang 'Join Now!'}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ $design->url('user', 'main', 'login') }}" title="{lang 'Login'}" data-load="ajax">
-                      <i class="fa fa-sign-in"></i> {lang 'Login'}
-                    </a>
-                  </li>
-                </ul>
-              </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-          </nav>
-        {/if}
-        {*{main_include 'headings.inc.tpl'}*}
-        {if !$is_guest_homepage}
-          <div role="banner" class="center ad_468_60">
-            {designModel.ad(468, 60)}
-          </div>
-        {/if}
-        <div class="clear"></div>
-      </header>
-      <main class="container-fluid" style="padding-left: 0;padding-right:0;">
+     <header class="header_menu_area affix-top">
+          {if !$is_guest_homepage}
+            {main_include 'top_menu.inc.tpl'}
+          {/if}
+          {if $is_guest_homepage}
+            <nav class="navbar navbar-default bg-transparent">
+              <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="{{ $design->homePageUrl() }}">{site_name}</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      <a class="bold" href="{{ $design->url('user', 'signup', 'step1') }}" title="{lang 'Join Now!'}">
+                        <i class="fa fa-user-plus"></i> {lang 'Join Now!'}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ $design->url('user', 'main', 'login') }}" title="{lang 'Login'}" data-load="ajax">
+                        <i class="fa fa-sign-in"></i> {lang 'Login'}
+                      </a>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+          {/if}
+          {*{main_include 'headings.inc.tpl'}*}
+          {if !$is_guest_homepage}
+            <div role="banner" class="center ad_468_60">
+              {designModel.ad(468, 60)}
+            </div>
+          {/if}
+          <div class="clear"></div>
+        </header>
+      <main class="container-fluid" style="padding: 25px 0 24px;background-color: white;">
         {* Alert Message *}
         {{ $design->flashMsg() }}
         <div class="msg"></div>
@@ -152,7 +147,6 @@
       <div role="banner" class="center ad_468_60">
         {designModel.ad(468, 60)}
       </div>
-    </div>
     <footer class="text-left">
         <div class="footer_widgets_area">
             {main_include 'bottom_menu.inc.tpl'}

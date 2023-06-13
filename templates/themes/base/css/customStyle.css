@@ -2292,13 +2292,13 @@ body, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .registration_form_area {
-
+    padding-top: 100px;
 }
 
 .registration_form_area .registration_form_s {
     max-width: 370px;
     background: #fff;
-    padding: 0px 30px;
+    padding: 0 30px;
     border: 1px solid #e0e0e0;
     border-radius: 3px;
     position: relative;
@@ -7784,7 +7784,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 ============================================================================================ */
 footer {
     padding: 0;
-    margin:0;
+    margin: 0;
     font-size: .9em;
     text-align: center;
     border-top: 1px solid #C8C8C8;
@@ -8055,11 +8055,35 @@ footer {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
 .pl-0 {
     padding-left: 0 !important;
 }
+
 #form_login_user .pfbc-buttons {
     padding-top: 8px !important;
     padding-bottom: 8px !important;
     text-align: center !important;
+}
+
+#form_search {
+    width: 91% !important;
+}
+
+#form_search .pfbc-textbox, #form_search .pfbc-textarea, #form_search .pfbc-select {
+    width: 100% !important;
+}
+.design-box {
+    border: 1px solid #cccccc7a !important;
+    padding: 14px 0 14px 11px !important;
+    background-image: none !important;
+    width: 100% !important;
+}
+.main-header-banner{
+    background-position: unset;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 730px;
+    margin-top: -104px;
+    margin-bottom: 70px;
 }
