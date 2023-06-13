@@ -1,9 +1,8 @@
-<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 bg-white ">
     <div class="pull-left col-xs-12 col-sm-7 col-md-6 col-lg-7 animated fadeInLeft">
         {include 'progressbar.inc.tpl'}
         {{ JoinForm::step1() }}
     </div>
-
     <div class="pull-right col-xs-12 col-sm-5 col-md-5 col-md-offset-1 col-lg-4 animated fadeInRight">
         <div class="center">
             <p>

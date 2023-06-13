@@ -7784,7 +7784,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 ============================================================================================ */
 footer {
     padding: 0;
-    margin: 30px 0 0 0;
+    margin:0;
     font-size: .9em;
     text-align: center;
     border-top: 1px solid #C8C8C8;
@@ -8021,4 +8021,45 @@ footer {
 
 .bg-white {
     background-color: white;
+}
+
+.my-5 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.py-5 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.login-box {
+    float: none;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+.float-none {
+    float: none !important;
+}
+
+.pb-2 {
+    padding-bottom: 2rem;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.pl-0 {
+    padding-left: 0 !important;
+}
+#form_login_user .pfbc-buttons {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    text-align: center !important;
 }
